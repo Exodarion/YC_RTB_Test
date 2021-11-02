@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TraineeShip RTB</title>
+
+    <!-- include CSS styling -->
+    <link href="Eerste.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Header 1</h1>
+    <p id="para_1">Lorem Ipsum, blah, blah, latin stuff.</p>
+    <!--The first few images-->
+    <img 
+        src="HC5.png" 
+        id="ID_1" 
+        alt="Hyrule Conquest Knights" 
+        width="1024" 
+        height="512"
+    > 
+    <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" 
+        id="ID_2"
+        alt="This is supposed to present the HTML Logo, sorry for that." 
+        width="512" 
+        height="256"
+    >
+    <br> <br>
+    <a 
+        href="https://remontenbookum.wordpress.com/" 
+        target="_blank">
+        Link to Portfolio
+    </a>
+    <br>
+
+    <!--The testing table-->
+    <table class="ColorGreen">
+        <tr>
+            <td style="background-color: wheat;">Cell 1</td>
+            <td>Cell 2</td>
+            <td>Cell 3</td>
+        </tr>
+    </table>
+    <table class="ColorGreen">
+        <thead>
+            <tr>
+                <th>Kolom 1</th>
+                <th>Kolom 2</th>
+                <th>Kolom 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Footer 1</td>
+                <td>Footer 2</td>
+                <td>Footer 3</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+
+    <!--This represents the second header-->
+    <h2 class="ColorGreen">Header 2</h2>
+    <p id="LastP">Lorem Ipsum</span>, blah, blah, latin stuff.</p>
+
+    <!-- include Javascript code -->
+    <script>
+        // Declaration
+        function SendAlert(message)
+        {
+            //Functionality
+            alert(message);
+        }
+
+        // Function call
+        SendAlert('Are you sure you would like to enter this page?');
+        SendAlert('Just one more test, bear with us.');
+        SendAlert('The final one, I promise.');
+        document.getElementById('LastP').style.backgroundColor = 'yellow';
+    </script>
+</body>
+</html>

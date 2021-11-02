@@ -1,0 +1,12 @@
+p { 
+    color:red; 
+    font-size: 24px; 
+}
+img {border: 6px double blue; }
+#para_1 { text-decoration: underline; }
+.ColorGreen { background-color: green; }
+#LastP:hover 
+{
+    color:white;
+    text-decoration: underline;
+}
