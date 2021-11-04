@@ -15,8 +15,9 @@ public class MiniOpdracht
 //		MiniOpdracht.Opdracht1();
 //		MiniOpdracht.Opdracht2();
 //		MiniOpdracht.Opdracht3();
-//		MiniOpdracht.Opdracht4(random);
+//		MiniOpdracht.Opdracht4();
 //		MiniOpdracht.Opdracht5(5);
+		
 		MiniOpdracht.Opdracht6();
 	}	
 	
@@ -51,7 +52,7 @@ public class MiniOpdracht
 		System.out.println("Addition result = " + result2);
 	}
 	
-	void Opdracht4 (Random random)
+	void Opdracht4 ()
 	{
 		int[] randomArray = new int[10];
 		for(int i = 0; i < randomArray.length; i++)
