@@ -1,5 +1,6 @@
 package Working;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -16,9 +17,10 @@ public class MiniOpdracht
 //		MiniOpdracht.Opdracht2();
 //		MiniOpdracht.Opdracht3();
 //		MiniOpdracht.Opdracht4();
-//		MiniOpdracht.Opdracht5(5);
+//		MiniOpdracht.Opdracht5(5);		
+//		MiniOpdracht.Opdracht6();
 		
-		MiniOpdracht.Opdracht6();
+		MiniOpdracht.Opdracht7("society");
 	}	
 	
 	String Opdracht1 ()
@@ -87,7 +89,82 @@ public class MiniOpdracht
 		System.out.println("Sorted Alphabetical = " + Arrays.toString(sorting.SortArrayFromLowest(Arrays.copyOf(input, input.length))));
 		System.out.println("Sorted anti-Alphabetical = " + Arrays.toString(sorting.SortArrayFromHighest(Arrays.copyOf(input, input.length))));
 	}
+	
+	void Opdracht7 (String word)
+	{
+		String displayString = "";
+		for(int i = 0; i < word.length(); i++)
+			displayString += "__ ";
+		
+		System.out.println("Try to guess the following word \n" + displayString);
+		
+		char[] splitWord = word.toCharArray();
+		Scanner scanner = new Scanner(System.in);
+		
+		boolean quitSimulation = false;
+		while(quitSimulation == false) // continue the simulation if specified by the player
+		{			
+			String input = scanner.nextLine(); // convert entire line to char array first	
+			char[] inputAsArray = input.toCharArray();
+			boolean matchesLength = false;
+			while(matchesLength == false) // continue this loop until the player selects a word with the proper length
+			{
+				if(input.length() != splitWord.length) 
+				{
+					System.out.println("The length of your guess does not match the provided word, try again.");
+					input = scanner.nextLine(); // convert entire line to char array first
+					inputAsArray = input.toCharArray();
+				}
+				else
+					matchesLength = true;
+			}
+			
+			//first check if the entire word aligns, and end the game if so
+			if(word.equals(input))
+			{
+				System.out.println("Correct! Thanks for playing!");
+				quitSimulation = true;
+				return;
+			}
+			
+			//Check the status for every element 
+			displayString = "";
+			for(int i = 0; i < word.length(); i++)
+			{
+				boolean foundState = false;
+				if(inputAsArray[i] == splitWord[i]) 
+				{ //The 2 letters are the same, add 2 and move to next iteration
+					displayString += "2";
+					continue; 
+				}
+					
+				for(int j = 0; j < splitWord.length; j++)
+				{ //Check the input against every individual letter of the given word
+					if(inputAsArray[i] == splitWord[j])
+					{ //This input letter exists somewhere else within the word, add 1 and break
+						displayString += "1";
+						foundState = true;
+						break;
+					}
+				}
+				
+				if(foundState == false) 
+					displayString += "0"; //Letter doesn't exist within this word, add 0
+			}
+			
+			System.out.println("The result is the following \n" + displayString);		
+			System.out.println("Would you like to continue playing? y/n");
+			if(scanner.nextLine().equals("y") == false) 
+				quitSimulation = true;
+		}
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////
+	// MISCELLANEOUS METHODS
+	/////////////////////////////////////////////////////////////////////////////////////////////
 }
+
+
 
 
 
