@@ -101,13 +101,11 @@ public class MiniOpdracht
 		char[] splitWord = word.toCharArray();
 		Scanner scanner = new Scanner(System.in);
 		
-		boolean quitSimulation = false;
-		while(quitSimulation == false) // continue the simulation if specified by the player
+		while(true) // continue the simulation if specified by the player
 		{			
 			String input = scanner.nextLine(); // convert entire line to char array first	
 			char[] inputAsArray = input.toCharArray();
-			boolean matchesLength = false;
-			while(matchesLength == false) // continue this loop until the player selects a word with the proper length
+			while(true) // continue this loop until the player selects a word with the proper length
 			{
 				if(input.length() != splitWord.length) 
 				{
@@ -116,15 +114,14 @@ public class MiniOpdracht
 					inputAsArray = input.toCharArray();
 				}
 				else
-					matchesLength = true;
+					break;
 			}
 			
 			//first check if the entire word aligns, and end the game if so
 			if(word.equals(input))
 			{
 				System.out.println("Correct! Thanks for playing!");
-				quitSimulation = true;
-				return;
+				break;
 			}
 			
 			//Check the status for every element 
@@ -155,7 +152,7 @@ public class MiniOpdracht
 			System.out.println("The result is the following \n" + displayString);		
 			System.out.println("Would you like to continue playing? y/n");
 			if(scanner.nextLine().equals("y") == false) 
-				quitSimulation = true;
+				break;
 		}
 	}
 	
