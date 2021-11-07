@@ -20,7 +20,9 @@ public class MiniOpdracht
 //		MiniOpdracht.Opdracht5(5);		
 //		MiniOpdracht.Opdracht6();
 		
-		MiniOpdracht.Opdracht7("society");
+		//MiniOpdracht.Opdracht7("society");
+		//MiniOpdracht.Opdracht8();
+		MiniOpdracht.Opdracht10("lepel");
 	}	
 	
 	String Opdracht1 ()
@@ -156,11 +158,60 @@ public class MiniOpdracht
 		}
 	}
 	
+	void Opdracht8 ()
+	{
+		// by using polymorphism, we can override what implementation will be used depending on the class provided
+		Captain captain = new Captain();
+		captain.Sail(new Ship()); // Sail by Ship
+		captain.Sail(new Cruiser()); // Sail by Cruiser, which inherits Ship
+	}
+	
+	void Opdracht10 (String word)
+	{		
+		System.out.println("Ik ga op vakantie en neem mee \n" + word);		
+		Scanner scanner = new Scanner(System.in);
+		ArrayList<String> collection = new ArrayList<String>();
+		collection.add(word);
+		
+		while(true) // continue the simulation if specified by the player
+		{
+			char oldLastLetter = word.toCharArray()[word.length() - 1];
+			System.out.println("Geef een nieuw woord dat begint met de laatste letter \n");
+			String newWord = scanner.nextLine();
+			char newFirstLetter = newWord.toCharArray()[0];
+			
+			while(true) //check if the word is valid
+			{
+				if(oldLastLetter != newFirstLetter) // the new word's first letter has to equal the last one of the previous input
+				{
+					System.out.println("Incorrect! Het nieuw woord moet beginnen met de letter " + oldLastLetter + " \n");
+					newWord = scanner.nextLine();
+					newFirstLetter = newWord.toCharArray()[0];
+				}
+				else if(word.equals(newWord)) // the new word can not equal the previous one
+				{
+					System.out.println("Incorrect! Hetzelfde woord mag niet 2 keer achter elkaar gebruikt worden");
+					newWord = scanner.nextLine();
+					newFirstLetter = newWord.toCharArray()[0];
+				}
+				else
+					break; // new word is valid, break out of the loop and continue to the next procedure
+			}
+			
+			collection.add(newWord);
+			word = newWord; // The word was approved, set the old word to the new one
+			System.out.println("Correct! Dit is de collectie " + collection);
+			
+			System.out.println("Wil je doorgaan? y/n");
+			if(scanner.nextLine().equals("y") == false) 
+				break;
+		}		
+	}
+	
 	/////////////////////////////////////////////////////////////////////////////////////////////
 	// MISCELLANEOUS METHODS
 	/////////////////////////////////////////////////////////////////////////////////////////////
 }
-
 
 
 
